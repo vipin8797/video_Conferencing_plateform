@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import { createServer } from "node:http";
-import { connectToSocket } from "./controllers/socketManager.js";
+//import { connectToSocket } from "./controllers/socketManager.js";
 import userRoutes from "./routes/users.routes.js"; //user Routes
 
 
@@ -11,8 +11,8 @@ import userRoutes from "./routes/users.routes.js"; //user Routes
 dotenv.config(); // ✅ Always after imports
 
 const app = express();
-const server = createServer(app);
-const io = connectToSocket(server);
+export const server = createServer(app);
+
 
 app.use(cors({
       origin: "*", // yaha apna frontend URL dal sakte ho
