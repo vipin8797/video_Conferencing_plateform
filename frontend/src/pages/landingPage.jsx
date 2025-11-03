@@ -24,10 +24,10 @@ function LandingPage() {
             <h1><span style={{ color: "orange" }}>Connect</span> with you loved once</h1>
             <p>Cover a distance by Vipin's Video conferencing app</p>
             <div role="button">
-                <Link to={"/home"}>Get Started</Link>
+                <Link to={"/auth"}>Get Started</Link>
             </div>
           </div>
-          
+
           <div>
             <img src="../../public/mobile.png" alt="hero image"></img>
           </div>
