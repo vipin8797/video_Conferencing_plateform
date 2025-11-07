@@ -22,7 +22,11 @@ app.use(express.json({limit:"40kb"})); //req me json type ka data accepted now
 app.use(express.urlencoded({limit:"40kb",extended:true}));
 
 
-
+// app.use((req,res,next)=>{
+//   console.log(req.url,req.method);
+//   next();
+//   console.log(req.body);
+// })
 
 
 // Sample route
