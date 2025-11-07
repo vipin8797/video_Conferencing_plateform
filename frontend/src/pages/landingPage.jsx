@@ -11,9 +11,9 @@ function LandingPage() {
             </div>
             <div className="navlist">
                <p>Join as Guest</p>
-               <p>Register</p>
+               <Link to={"/auth"}><p>register</p></Link>
                <div role="button">
-                <p>Login</p>
+                <Link to={"/auth"}><p>login</p></Link>
                </div>
             </div>
         </nav>

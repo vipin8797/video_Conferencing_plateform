@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext.jsx";
+import { useNavigate } from "react-router-dom";
+
 import {
   Box,
   Card,
@@ -11,6 +14,8 @@ import {
 } from "@mui/material";
 
 export default function Authentication() {
+  const { handleLogin, handleRegister } = useContext(AuthContext); // ✅ FIXED
+  const nevigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
@@ -22,12 +27,21 @@ export default function Authentication() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (isLogin) {
-      console.log("Logging in with:", formData);
+      console.log(formData);
+      await handleLogin(formData.email, formData.password);
+      nevigate("/");
+    //   console.log("username",formData.email);
+    // console.log("password",formData.password);
     } else {
-      console.log("Signing up with:", formData);
+       console.log(formData);
+     await  handleRegister(formData.name, formData.email, formData.password);
+     nevigate("/auth");
+    // console.log("name",formData.name);
+    // console.log("username",formData.email);
+    // console.log("password",formData.password);
     }
   };
 
